@@ -1,0 +1,21 @@
+//Requires: <both a and b must NOT be null so that the loop can itterate through the array without null errors>
+//Effects: <after comparision, the max value of "a" will get re-initialized to the same value as "b" and be at the same array index>
+
+
+public static void substituteMax(int[] a, int[] b) {
+	int maxOfA = a[0];
+	int index = 0;
+	for (int i = 0; i < a.length; i++) {
+		if(a[i] > maxOfA) {
+			maxOfA = a[i];
+			index = i;
+		}
+	}
+	int maxOfB = b[0];
+	for (int i = 0; i < b.length; i++) {
+		if(b[i] > maxOfB) {
+			maxOfB = b[i];
+		}
+	}
+	a[index] = maxOfB;
+}
