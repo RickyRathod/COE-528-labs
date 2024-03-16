@@ -1,13 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package project;
 
 /**
  *
  * @author yoloi
  */
+
+//"When a customer has less than 10000 dollars in her account, she is at silver level."
 public class SIlverCustomer {
     
 }

@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package project;
 
 /**
  *
  * @author yoloi
  */
+//"When a customer has 20000 dollars or more in her account, she is at platinum level."
 public class PlatinumCustomer {
     
 }
