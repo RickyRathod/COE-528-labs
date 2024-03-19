@@ -1,0 +1,4 @@
+Username: Admin
+Password: Admin
+Balance: 20000
+Level: Platinum Level
