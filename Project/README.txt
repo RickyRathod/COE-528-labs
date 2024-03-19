@@ -1,0 +1,1 @@
+The USERINFO file is useless and was a initial try at something else, failed and i for some reason cannot delete this shit file so its just there now lol.

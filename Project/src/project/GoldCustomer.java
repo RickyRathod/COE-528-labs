@@ -68,7 +68,7 @@ public class GoldCustomer extends Customer {
     public boolean purchase(int amount) {
         // Implementing purchase logic for the SilverCustomer's
         if(amount >= 0 && amount <= balance){
-        balance = balance - amount - 20;
+        balance = balance - amount - 10;
         return true;
         }
         return false;

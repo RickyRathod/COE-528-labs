@@ -73,7 +73,7 @@ public class Project extends Application {
             Scene scene = new Scene(root, 300, 250);
 
             primaryStage.setScene(scene);
-            primaryStage.setTitle("Manager Account Creation");
+            primaryStage.setTitle("Manager");
             primaryStage.show();
         }
     } 
@@ -91,7 +91,7 @@ public class Project extends Application {
 
         // Save customer information to a file
         saveCustomerToFile(customer);
-    }
+    } 
 
     private static void saveCustomerToFile(Customer customer) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(customer.getUsername() + ".txt"))) {
