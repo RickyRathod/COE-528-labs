@@ -26,9 +26,8 @@ public class Manager {
     }
 
     public boolean LoginAuthenticate(String username, String password) {
-        // Implement authentication logic here
-        // For example, you can check if the provided username and password match the manager's credentials
-        return this.username.equals(username) && this.password.equals(password);
+        // Check if the provided username and password match the hardcoded values
+        return USERNAME.equals(username) && PASSWORD.equals(password);
     }
 
     public void logout() {
