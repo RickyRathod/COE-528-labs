@@ -37,7 +37,8 @@ public class CustomerGUI extends Application {
         // Start the JavaFX application
         launch(args);
     }
-        
+    
+    //customers login window
     private void displayCustomerLogin(Stage primaryStage) {
         primaryStage.setTitle("Customer Login");
 
@@ -77,6 +78,7 @@ public class CustomerGUI extends Application {
         });
     }
     
+    //after login, customers can see the depost withdrawl and purchace button along with the logout feature
     private void showCustomerInterface(Stage primaryStage, Customer customer) {
         // Display the customer interface using the provided customer object
         // You can now use customer methods to perform operations
@@ -101,6 +103,7 @@ public class CustomerGUI extends Application {
         Button depositButton = new Button("Deposit");
         Button withdrawButton = new Button("Withdraw");
         Button purchaseButton = new Button("Purchase");
+        Button logoutButton = new Button("Logout");
 
         // Event handlers for deposit, withdraw, and purchase buttons
         depositButton.setOnAction(e -> {
@@ -146,6 +149,11 @@ public class CustomerGUI extends Application {
                 showError("Invalid purchase amount. Please enter a valid number.");
             }
         });
+        
+        logoutButton.setOnAction(e -> {
+        // Close the current stage (customer interface window)
+        customerStage.close();
+    });
 
         // Create a VBox layout to arrange UI components vertically
         VBox root = new VBox(10);
@@ -157,7 +165,8 @@ public class CustomerGUI extends Application {
                 new Label("Withdraw:"),
                 withdrawAmountField, withdrawButton,
                 new Label("Purchase:"),
-                purchaseAmountField, purchaseButton
+                purchaseAmountField, purchaseButton,
+                logoutButton               
         );
 
         // Create a Scene with the root layout

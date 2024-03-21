@@ -67,7 +67,7 @@ public class Project extends Application {
         });
     }
 
-    private void displayManagerInterface(Stage primaryStage) {
+    private void displayManagerInterface(Stage primaryStage) { 
         Label nameLabel = new Label("Customer Name:");
         TextField nameField = new TextField();
         Label passwordLabel = new Label("Password:");
@@ -76,6 +76,7 @@ public class Project extends Application {
         TextField balanceField = new TextField(); // Text field for initial balance
         Button createButton = new Button("Create Account");
         Button deleteButton = new Button("Delete Account");
+        Button logoutButton = new Button("Logout");
 
         createButton.setOnAction(e -> {
             String username = nameField.getText();
@@ -97,10 +98,20 @@ public class Project extends Application {
             deleteCustomerFile(username);
             // Display confirmation message or handle any errors
         });
+        
+        logoutButton.setOnAction(e -> {
+            // Close the current stage (manager interface window)
+            primaryStage.close();
+        });
 
         VBox root = new VBox(10);
         root.setPadding(new Insets(10));
-        root.getChildren().addAll(nameLabel, nameField, passwordLabel, passwordField, balanceLabel, balanceField, createButton, deleteButton);
+        root.getChildren().addAll(nameLabel, nameField,
+                passwordLabel, passwordField, 
+                balanceLabel, balanceField, 
+                createButton, deleteButton,
+                logoutButton
+        );
 
         Scene scene = new Scene(root, 300, 250);
 
