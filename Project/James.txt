@@ -1,0 +1,4 @@
+Username: James
+Password: 567
+Balance: 5000
+Level: Silver Level

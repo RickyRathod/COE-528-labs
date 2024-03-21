@@ -15,6 +15,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 /**
  * 
  *
@@ -107,11 +109,12 @@ public class CustomerGUI extends Application {
                 customer.deposit(amount);
                 balanceLabel.setText("Balance: $" + customer.getBalance());
                 depositAmountField.clear();
+                updateCustomerFile(customer); // Update customer file after deposit
             } catch (NumberFormatException ex) {
                 showError("Invalid deposit amount. Please enter a valid number.");
             }
         });
-
+        
         withdrawButton.setOnAction(e -> {
             try {
                 int amount = Integer.parseInt(withdrawAmountField.getText());
@@ -119,6 +122,7 @@ public class CustomerGUI extends Application {
                 if (success) {
                     balanceLabel.setText("Balance: $" + customer.getBalance());
                     withdrawAmountField.clear();
+                    updateCustomerFile(customer); // Update customer file after withdrawal
                 } else {
                     showError("Insufficient balance for withdrawal.");
                 }
@@ -126,7 +130,7 @@ public class CustomerGUI extends Application {
                 showError("Invalid withdraw amount. Please enter a valid number.");
             }
         });
-
+        
         purchaseButton.setOnAction(e -> {
             try {
                 int amount = Integer.parseInt(purchaseAmountField.getText());
@@ -134,6 +138,7 @@ public class CustomerGUI extends Application {
                 if (success) {
                     balanceLabel.setText("Balance: $" + customer.getBalance());
                     purchaseAmountField.clear();
+                    updateCustomerFile(customer); // Update customer file after purchase
                 } else {
                     showError("Insufficient balance for purchase.");
                 }
@@ -222,16 +227,22 @@ public class CustomerGUI extends Application {
         return null; // Return null if file doesn't exist or data couldn't be loaded
     }
     
-    private void deposit() {
-        // Implement deposit functionality here
+    private void updateCustomerFile(Customer customer) {
+    String username = customer.getUsername();
+    File file = new File(username + ".txt");
+    if (file.exists()) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(file))) {
+            writer.println("Username: " + customer.getUsername());
+            writer.println("Password: " + customer.getPassword());
+            writer.println("Balance: " + customer.getBalance());
+            writer.println("Level: " + customer.getLevel());
+            // Add additional customer information as needed
+            System.out.println("Customer information updated and saved to file.");
+        } catch (IOException e) {
+            System.err.println("Error updating customer information: " + e.getMessage());
+        }
+    } else {
+        System.err.println("File for customer " + username + " does not exist.");
     }
-
-    private void withdraw() {
-        // Implement withdrawal functionality here
-    }
-
-    private void purchase() {
-        // Implement purchase functionality here
-    }
-
+}
 }
